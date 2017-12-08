@@ -1,0 +1,19 @@
+#wrapper {
+	text-align: center;
+}
+#notesWrapper {
+	width: 300px;
+    background: #00BCFF;
+    color: #fff;
+    border-radius: 20px;
+    padding:30px 0px;
+    margin:15px auto;
+}
+
+#notesWrapper button {
+	margin-right:10px;
+}
+
+#notesWrapper li {
+	list-style: none;
+}
