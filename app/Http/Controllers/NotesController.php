@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Notes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class NotesController extends Controller
 {
@@ -15,8 +17,12 @@ class NotesController extends Controller
     public function index()
     {
         //
-        $notes = Notes::all();
-        return view('notes.index', compact('notes'));
+      //  if (Auth::check()) {
+         $notes = Notes::all();
+         return view('notes.index', compact('notes'));
+        // } else {
+          //  return 'You have to login first.';
+        // }
     }
 
     /**
@@ -65,7 +71,7 @@ class NotesController extends Controller
      * @param  \App\Notes  $notes
      * @return \Illuminate\Http\Response
      */
-    public function edit(Notes $notes)
+    public function edit(Notes $note)
     {
         //
          return view('notes.edit', compact('note'));
@@ -81,7 +87,9 @@ class NotesController extends Controller
     public function update(Request $request, Notes $note)
     {
         //
-         $note->update($request->only('title'));
+        $note->title = $request->title;
+        $note->content = $request->content;
+         $note->update();
          return redirect()->route('notes.index');
     }
 

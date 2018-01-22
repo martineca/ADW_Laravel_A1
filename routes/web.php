@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/notes','NotesController@index')->name('notes.index');
+/*Route::get('/', function () {
+    return view('/notes/index');
+});*/
+Route::get('/','NotesController@index')->name('notes.index');
 Route::get('/notes/create', 'NotesController@create')->name('notes.create');
 Route::post('/notes', 'NotesController@store')->name('notes.store');
 Route::get('/notes/{note}/edit', 'NotesController@edit')->name('notes.edit');
 Route::put('/notes/{note}', 'NotesController@update')->name('notes.update');
 Route::delete('/notes/{note}', 'NotesController@destroy')->name('notes.delete');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

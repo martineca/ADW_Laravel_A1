@@ -1,18 +1,17 @@
-ADW_Laravel_A1
-
-Student id: u1452343
+# ADW_Laravel_A1
+Student id: u1452343  
 Name: Martin Stoyanov
 
-To run:
+To run: 
 
-Make sure you have composer installed - https://getcomposer.org/
+1) Make sure you have composer installed - https://getcomposer.org/
 
-install laravel using - composer global require "laravel/installer"
+2) install laravel using - composer global require "laravel/installer"
 
-start mysql server from, for example, xampp
+3) start mysql server from, for example, xampp
+ 
+4) check the config file for tables and mysql username 
 
-check the config file for tables and mysql username
+5) run in the project directory php artisan migrate
 
-run in the project directory php artisan migrate
-
-run -> php artisan serve
+6) run -> php artisan serve
