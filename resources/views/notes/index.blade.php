@@ -28,6 +28,9 @@
 <form action="{{ route('notes.create') }}">
    <button type="submit" class="btn btn-default btn-small">Add note</button>
 </form>
+<form action="{{ route('notes.searchView') }}">
+   <button type="submit" class="btn btn-default btn-small">Search</button>
+</form>
 </div><!-- end of wrapper -->
 @endguest
 @endsection

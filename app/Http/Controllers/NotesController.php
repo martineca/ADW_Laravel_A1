@@ -78,6 +78,43 @@ class NotesController extends Controller
     }
 
     /**
+     * Search for notes.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+    public function searchView()
+    {
+    $search = \Request::get('search'); //<-- we use global request to get the param of URI
+ 
+    $notes = Notes::where('title','like','%'.$search.'%')
+        ->orderBy('title')
+        ->paginate(20);
+            
+    return view('notes.searchView', compact('notes'));
+    }
+
+        /**
+     * Search for notes.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+
+     public function mySearch(Request $request)
+    {
+        if($request->has('search')){
+            $notes = Notes::search($request->get('search'))->get();  
+        }else{
+            $notes = Notes::get();
+        }
+
+        return view('notes.my-search', compact('notes'));
+    }
+
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -89,6 +126,7 @@ class NotesController extends Controller
         //
         $note->title = $request->title;
         $note->content = $request->content;
+
          $note->update();
          return redirect()->route('notes.index');
     }
