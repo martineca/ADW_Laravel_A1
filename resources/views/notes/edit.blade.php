@@ -6,7 +6,7 @@
    <p> Please login or register first. </p>
 </div>
 @else
-<div id="wrapper">
+<div id="content">
 	<!-- form to edit a specific note -->
    <form action="{{ route('notes.update', $note) }}" method="post">
       {{ csrf_field() }}
